@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules
+
+# Build output
+dist/
+dist-ssr/
+dev-dist/
+
+# Local environment files
+*.local
+.env
+.env.*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# TypeScript
+*.tsbuildinfo
+
+# PWA 빌드 시 생성되는 manifest 파일 제외
+public/manifest.webmanifest
+
+# Linting
+.eslintcache  # ESLint 캐시 파일
