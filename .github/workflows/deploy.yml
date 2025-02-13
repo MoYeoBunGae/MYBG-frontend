@@ -8,7 +8,7 @@ env:
     DEV_BUCKET_KEY: build_fe_dev.zip
 
 jobs:
-    build:
+    build-and-deploy:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout source code
