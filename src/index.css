@@ -1,68 +1,106 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@import 'tailwindcss';
+
+/* tailwind */
+@theme {
+  --font-pre: 'Pretendard';
+
+  --color-primary: #ffb543;
+  --color-sub: #ffd752;
+  --color-secondary: #7aabf6;
+  --color-black: #121212;
+  --color-black20: #202020;
+  --color-black60: #606060;
+  --color-black84: #848484;
+  --color-darkgray: #bdbdbd;
+  --color-lightgray: #ececec;
+  --color-background: #f6f6f6;
+  --color-white: #fdfdfd;
+  --color-red: #f46657;
+  --color-blue: #3f84fc;
+  --color-green: #64c886;
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+
+  --shadow-nav: 0px 0px 12px 0px rgba(0, 0, 0, 0.04);
+  --shadow-first: 2px 2px 6px 0px rgba(0, 0, 0, 0.04);
+  --shadow-second: 2px 2px 6px 0px rgba(122, 171, 246, 0.04);
+}
+
+/* Font */
+@font-face {
+  font-family: Pretendard;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  src:
+    local('Pretendard Regular'),
+    url('./assets/fonts/Pretendard-Regular.woff') format('woff'),
+    url('./assets/fonts/Pretendard-Regular.woff2') format('woff2');
 }
 
-a {
+@font-face {
+  font-family: Pretendard;
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  src:
+    local('Pretendard Medium'),
+    url('./assets/fonts/Pretendard-Medium.woff') format('woff'),
+    url('./assets/fonts/Pretendard-Medium.woff2') format('woff2');
 }
-a:hover {
-  color: #535bf2;
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 600;
+  src:
+    local('Pretendard SemiBold'),
+    url('./assets/fonts/Pretendard-SemiBold.woff') format('woff'),
+    url('./assets/fonts/Pretendard-SemiBold.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 700;
+  src:
+    local('Pretendard Bold'),
+    url('./assets/fonts/Pretendard-Bold.woff') format('woff'),
+    url('./assets/fonts/Pretendard-Bold.woff2') format('woff2');
+}
+
+/* Root Layout */
+
+#root {
+  /* PC */
+  width: 100dvw;
+  min-width: 300px;
+  max-width: 544px;
+  height: 100dvh;
+  padding-top: env(safe-area-inset-top);
+
+  /* iOS */
+  /* width: 390px;
+  height: 852px; */
+
+  /* Android */
+  /* width: 360px;
+  height: 800px; */
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+/* Global Style */
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  @apply text-black60 font-pre;
+
+  -ms-overflow-style: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+::-webkit-scrollbar {
+  display: none;
 }
