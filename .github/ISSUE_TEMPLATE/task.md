@@ -1,7 +1,7 @@
 ---
 name: Task
 about: 작업 이슈 템플릿
-title: "\U0001F4A1"
+title: "\U0001F537"
 labels: ''
 assignees: ''
 ---
