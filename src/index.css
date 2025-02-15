@@ -92,7 +92,7 @@
 /* Global Style */
 
 body {
-  @apply text-black60 font-pre;
+  @apply text-black font-pre;
 
   -ms-overflow-style: none;
   -webkit-user-select: none;
