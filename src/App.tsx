@@ -1,9 +1,9 @@
-import './App.css';
+import AppRoutes from '@/routes/AppRoutes';
 
 function App() {
   return (
     <>
-      <h1 className="font-bold">⚡모여번개의 시작</h1>
+      <AppRoutes />
     </>
   );
 }
