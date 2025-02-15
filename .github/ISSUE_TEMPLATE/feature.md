@@ -1,7 +1,7 @@
 ---
 name: Feature
 about: 기능 이슈 템플릿
-title: "\U0001F537"
+title: "\U0001F4A1"
 labels: ''
 assignees: ''
 ---
