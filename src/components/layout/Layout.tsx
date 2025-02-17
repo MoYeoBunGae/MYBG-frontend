@@ -4,7 +4,9 @@ import Navbar from '@/components/layout/Navbar';
 const Layout = () => {
   return (
     <div className="bg-background h-screen overflow-y-auto">
-      <Outlet />
+      <div className="pb-24">
+        <Outlet />
+      </div>
       <Navbar />
     </div>
   );
