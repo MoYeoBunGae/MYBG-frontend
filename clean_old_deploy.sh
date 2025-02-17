@@ -1,5 +1,5 @@
 #!/bin/bash
 
 echo "Deleting old deploys..."
-rm -rf /app/fe/*
+rm -rf /mochat/fe/*
 echo "Old deploys deleted successfully!"
