@@ -16,8 +16,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full fixed bottom-0 bg-white shadow-nav">
-      <div className="flex justify-around pt-3 pb-10">
+    <nav className="fixed bottom-0 w-full h-24 bg-white shadow-nav">
+      <div className="flex justify-around pt-3">
         {navItems.map(({ to, label, Icon }) => (
           <Link key={to} to={to} className="flex flex-col items-center text-xs gap-1.5">
             <Icon
