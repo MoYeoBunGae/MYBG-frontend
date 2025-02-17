@@ -31,6 +31,7 @@ jobs:
 
             - name: zip create
               run: | 
+                chmod +x clean_old_deploy.sh after_deploy.sh
                 cp appspec.yml clean_old_deploy.sh after_deploy.sh ./dist/
                 zip -qq -r ./${{ env.DEV_BUCKET_KEY }} ./dist
               shell: bash
