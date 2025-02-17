@@ -5,12 +5,13 @@ import MenuIcon from '@/assets/icons/menu.svg?react';
 
 interface HeaderProps {
   pagename: string;
-  variant?: 'main' | 'sub' | 'title';
+  variant?: 'main' | 'sub';
   hasBell?: boolean;
   leftIcon?: 'none' | 'back' | 'close';
   rightIcon?: 'none' | 'menu';
   isCenter?: boolean;
 }
+
 const Header = ({
   pagename,
   variant = 'main',
