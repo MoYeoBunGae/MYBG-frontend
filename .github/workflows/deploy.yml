@@ -51,7 +51,7 @@ jobs:
 
             - name: Deploy
               run: aws deploy create-deployment
-                  --application-name Mochat
+                  --application-name MYBG
                   --deployment-config-name CodeDeployDefault.AllAtOnce
-                  --deployment-group-name Mochat-Front-Deploy
+                  --deployment-group-name ${{ secrets.CODE_DEPLOY_DEPLOYMENT_GROUP }}
                   --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},key=${{ env.DEV_BUCKET_KEY }},bundleType=zip
