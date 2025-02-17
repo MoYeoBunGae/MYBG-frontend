@@ -13,6 +13,11 @@ permissions:
     group: github-action
     mode: 755
 hooks:
+  BeforeInstall:
+    - location: clean_old_deploy.sh
+      timeout: 30
+      runas: root
+
   AfterInstall:
     - location: deploy.sh
       timeout: 60
