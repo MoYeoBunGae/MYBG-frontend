@@ -21,7 +21,7 @@ const Navbar = () => {
         {navItems.map(({ to, label, Icon }) => (
           <Link key={to} to={to} className="flex flex-col items-center text-xs gap-1.5">
             <Icon
-              className={`w-7 h-7 ${location.pathname === to ? 'text-primary fill-primary' : 'text-darkgray'}`}
+              className={`size-7 ${location.pathname === to ? 'text-primary fill-primary' : 'text-darkgray'}`}
             />
             <span className={location.pathname === to ? 'text-primary' : 'text-darkgray'}>
               {label}
@@ -31,7 +31,7 @@ const Navbar = () => {
 
         <Link to="/mypage" className="flex flex-col items-center text-xs gap-1.5">
           <div
-            className={`w-7 h-7 rounded-full border-[1.5px] bg-cover bg-center ${location.pathname === '/mypage' ? 'border-primary' : 'border-lightgray'}`}
+            className={`size-7 rounded-full border-[1.5px] bg-cover bg-center ${location.pathname === '/mypage' ? 'border-primary' : 'border-lightgray'}`}
             style={{ backgroundImage: `url(${user.profileImg || ProfileDefault})` }}
           />
           <span className={location.pathname === '/mypage' ? 'text-primary' : 'text-darkgray'}>

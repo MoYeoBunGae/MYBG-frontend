@@ -25,7 +25,7 @@ const Button = ({
         ${variant === 'normal' ? 'w-full h-10 rounded-md font-semibold' : 'text-xs font-medium'}
         ${variant === 'round' ? 'w-fit h-fit px-3 py-2 rounded-full' : ''}
         ${variant === 'withIcon' ? 'w-full h-fit px-4 py-2 rounded-md' : ''}
-        ${variant === 'onlyIcon' ? 'w-12 h-12 rounded-full' : ''}
+        ${variant === 'onlyIcon' ? 'size-12 rounded-full' : ''}
         ${color === 'primary' ? 'bg-primary text-white' : ''}
         ${color === 'white' ? 'bg-white text-black' : ' '}
         ${color === 'primaryOutlined' ? 'border-[1.25px] border-sub bg-primary text-white' : ' '}
@@ -39,7 +39,7 @@ const Button = ({
       {icon && (
         <span
           className={`
-            ${variant === 'withIcon' ? 'w-6 h-6 mr-2' : ''}
+            ${variant === 'withIcon' ? 'size-6 mr-2' : ''}
             ${variant === 'onlyIcon' ? 'w-8' : ''}`}
         >
           {icon}
@@ -48,7 +48,7 @@ const Button = ({
       <span className={`${variant === 'withIcon' ? 'flex-1 text-left' : ''}`}>{text}</span>
       {variant === 'withIcon' && (
         <span>
-          <RightArrowIcon className={`w-3 h-3 ml-2 ${color === 'white' ? 'text-black60' : ' '}`} />
+          <RightArrowIcon className={`size-3 ml-2 ${color === 'white' ? 'text-black60' : ' '}`} />
         </span>
       )}
     </button>
