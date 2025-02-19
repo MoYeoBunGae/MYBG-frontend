@@ -3,16 +3,15 @@ import ProfileDefault from '@/assets/images/profile.png';
 import KakaoSymbol from '@/assets/images/kakao-symbol.png';
 import DoorEmoji from '@/assets/emojis/door.svg?react';
 import SkeletonEmoji from '@/assets/emojis/skeleton.svg?react';
+import { useAuthStore } from '@/store/authStore';
 
 export default function MyPage() {
-  const user = {
-    member_id: '1',
-    profile_img_url: '',
-    name: '모여번개',
-  };
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
 
   const handleLogout = () => {
-    alert('로그아웃');
+    logout();
+    window.location.href = '/login';
   };
 
   const handleDeleteAccount = () => {
@@ -31,14 +30,14 @@ export default function MyPage() {
         <div className="flex flex-col items-center py-5 gap-3 rounded-md bg-background shadow-first">
           <img
             className="object-cover size-20 rounded-full"
-            src={user.profile_img_url || ProfileDefault}
+            src={user.userProfileImage || ProfileDefault}
             alt="프로필사진"
           />
           <div className="flex items-center gap-1.5">
             <div className="flex justify-center items-center size-5 rounded-full bg-[#FEE500]">
               <img className="size-3" src={KakaoSymbol} alt="카카오 Symbol" />
             </div>
-            <span className="font-semibold">{user.name}</span>
+            <span className="font-semibold">{user.userName}</span>
           </div>
         </div>
 
