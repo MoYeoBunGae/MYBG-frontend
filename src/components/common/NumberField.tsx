@@ -53,7 +53,7 @@ const NumberField = ({ value, label, min, max, step = 1, onChange }: NumberField
       {label && <label className="flex-1 font-semibold text-black">{label}</label>}
       <div className="flex items-center gap-2">
         <button
-          className={`w-6 h-6 rounded-md font-bold text-white
+          className={`size-6 rounded-md font-bold text-white
             ${value <= min ? 'bg-darkgray' : 'bg-sub'}`}
           onClick={handleDecrease}
           disabled={value <= min}
@@ -77,7 +77,7 @@ const NumberField = ({ value, label, min, max, step = 1, onChange }: NumberField
         </div>
 
         <button
-          className={`w-6 h-6 rounded-md font-bold text-white
+          className={`size-6 rounded-md font-bold text-white
             ${value >= max ? 'bg-darkgray' : 'bg-sub'}`}
           onClick={handleIncrease}
           disabled={value >= max}
