@@ -1,17 +1,19 @@
+import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '@/store/authStore';
 import Header from '@/components/layout/Header';
 import ProfileDefault from '@/assets/images/profile.png';
 import KakaoSymbol from '@/assets/images/kakao-symbol.png';
 import DoorEmoji from '@/assets/emojis/door.svg?react';
 import SkeletonEmoji from '@/assets/emojis/skeleton.svg?react';
-import { useAuthStore } from '@/store/authStore';
 
 export default function MyPage() {
+  const navigate = useNavigate();
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
 
   const handleLogout = () => {
     logout();
-    window.location.href = '/login';
+    navigate('/login');
   };
 
   const handleDeleteAccount = () => {
