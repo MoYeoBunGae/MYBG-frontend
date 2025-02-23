@@ -48,7 +48,7 @@ const TextField = ({
         {isMultiline ? (
           <textarea
             ref={textareaRef}
-            className="w-full min-h-10 px-3 py-2.5 rounded-sm border border-lightgray text-black20 focus:outline-none placeholder-black84 resize-none overflow-hidden"
+            className="w-full min-h-10 px-3 py-2.5 rounded-sm border border-lightgray bg-white text-black20 focus:outline-none placeholder-black84 resize-none overflow-hidden"
             value={value}
             onChange={handleChangeInput}
             maxLength={maxLength}
@@ -59,7 +59,7 @@ const TextField = ({
         ) : (
           <input
             type="text"
-            className="w-full h-10 px-3 py-2.5 rounded-sm border border-lightgray text-black20 focus:outline-none placeholder-black84"
+            className="w-full h-10 px-3 py-2.5 rounded-sm border border-lightgray bg-white text-black20 focus:outline-none placeholder-black84"
             value={value}
             onChange={handleChangeInput}
             maxLength={maxLength}
