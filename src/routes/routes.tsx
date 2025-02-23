@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import ProetectedRoute from '@/routes/ProetectedRoute';
 import PublicRoute from '@/routes/PublicRoute';
-import GroupList, { GroupCreate } from '@/pages/GroupList';
+import GroupList, { GroupCreate, GroupCreateSuccess } from '@/pages/GroupList';
 import BungaeList from '@/pages/BungaeList';
 import MyPage from '@/pages/MyPage';
 import Login from '@/pages/Auth/Login';
@@ -18,6 +18,7 @@ const proetectedRoutes: RouteType[] = [
   { path: '/mybungae', element: <BungaeList />, layout: true },
   { path: '/mypage', element: <MyPage />, layout: true },
   { path: '/group/post', element: <GroupCreate />, layout: false },
+  { path: '/group/success', element: <GroupCreateSuccess />, layout: false },
 ].map((route) => ({
   ...route,
   element: <ProetectedRoute>{route.element}</ProetectedRoute>,
