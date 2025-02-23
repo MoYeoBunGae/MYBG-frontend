@@ -29,7 +29,7 @@ const BottomSheetModal = ({ isOpen, onClose, children }: BottomSheetModalProps) 
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute top-5 right-6">
-              <CloseIcon className="size-6 text-black84" onClick={onClose} />
+              <CloseIcon className="size-6 text-black84 cursor-pointer" onClick={onClose} />
             </div>
             <div className="pt-11">{children}</div>
           </motion.div>

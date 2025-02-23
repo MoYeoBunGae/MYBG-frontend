@@ -24,8 +24,8 @@ const Header = ({
     <div className="flex items-center justify-between h-12 px-4 py-3 relative">
       {leftIcon !== 'none' && (
         <div className="mr-3">
-          {leftIcon === 'back' && <LeftArrowIcon className="size-6 text-black20" />}
-          {leftIcon === 'close' && <CloseIcon className="size-6 text-black20" />}
+          {leftIcon === 'back' && <LeftArrowIcon className="size-6 text-black20 cursor-pointer" />}
+          {leftIcon === 'close' && <CloseIcon className="size-6 text-black20 cursor-pointer" />}
         </div>
       )}
 
@@ -39,9 +39,9 @@ const Header = ({
       </div>
 
       <div className="flex ml-3 gap-2">
-        {hasBell && <BellIcon className="size-6 text-black20" />}
+        {hasBell && <BellIcon className="size-6 text-black20 cursor-pointer" />}
         {rightIcon !== 'none' && (
-          <>{rightIcon === 'menu' && <MenuIcon className="size-6 text-black20" />}</>
+          <>{rightIcon === 'menu' && <MenuIcon className="size-6 text-black20 cursor-pointer" />}</>
         )}
       </div>
     </div>
