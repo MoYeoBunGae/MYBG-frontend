@@ -5,6 +5,7 @@ interface TextFieldProps {
   placeholder: string;
   maxLength: number;
   label?: string;
+  onlyLengthLabel?: boolean;
   isMultiline?: boolean;
   onChange: (value: string) => void;
 }
@@ -12,8 +13,9 @@ interface TextFieldProps {
 const TextField = ({
   value,
   placeholder,
-  label,
   maxLength,
+  label,
+  onlyLengthLabel = false,
   isMultiline = false,
   onChange,
 }: TextFieldProps) => {
@@ -35,9 +37,9 @@ const TextField = ({
   }, [value, isMultiline]);
 
   return (
-    <div className="grid px-2 gap-2 text-sm">
+    <div className="grid px-2 gap-1 text-sm">
       {label && (
-        <div className="flex">
+        <div className="flex pb-1">
           <label className="flex-1 font-semibold text-black">{label}</label>
           <span className="text-black84">
             {value.length}/{maxLength}
@@ -68,6 +70,11 @@ const TextField = ({
           />
         )}
       </div>
+      {onlyLengthLabel && (
+        <div className="flex justify-end text-xs text-darkgray">
+          {value.length}/{maxLength}
+        </div>
+      )}
     </div>
   );
 };
