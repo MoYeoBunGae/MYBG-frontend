@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Button from '@/components/common/Button';
 import LetterEmoji from '@/assets/emojis/letter.svg?react';
@@ -19,21 +20,29 @@ const groups = [
 ];
 
 export default function GroupList() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Header pagename="그룹" />
       <div className="mx-4 mt-3">
         <div className="flex gap-3 mb-4">
-          <Button text="새로운 그룹 생성" variant="withIcon" color="white" icon={<PeopleEmoji />} />
+          <Button
+            text="새로운 그룹 생성"
+            variant="withIcon"
+            color="white"
+            icon={<PeopleEmoji />}
+            onClick={() => navigate('/group/post')}
+          />
           <Button text="초대 코드 입력" variant="withIcon" icon={<LetterEmoji />} />
         </div>
-        <div className="px-3 py-4 mb-4 bg-white rounded-md text-sm">
+        <div className="px-3 py-4 mb-4 rounded-md bg-white text-sm">
           <div className="mb-4 font-bold text-black20">나의 그룹</div>
           {groups.length > 0 ? (
             <div className="grid grid-cols-2 gap-3">
               {groups.map((group, index) => (
                 <div key={index} className="flex flex-col gap-2 mb-1">
-                  <div className="aspect-square rounded-md border border-lightgray overflow-hidden">
+                  <div className="aspect-square rounded-md border border-lightgray overflow-hidden cursor-pointer">
                     {group.ProfileImage && (
                       <img
                         src={group.ProfileImage}
@@ -43,7 +52,7 @@ export default function GroupList() {
                     )}
                   </div>
                   <span>
-                    <div className="mb-0.5 font-medium truncate">{group.Name}</div>
+                    <div className="mb-0.5 font-medium truncate cursor-pointer">{group.Name}</div>
                     <div className="text-xs text-black84">멤버 {group.totalNumber}명</div>
                   </span>
                 </div>
