@@ -31,7 +31,7 @@ const NumberField = ({ value, label, min, max, step = 1, onChange }: NumberField
     onChange(newValue);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = e.target.value.replace(/[^0-9]/g, '');
     setInputValue(rawValue);
   };
@@ -67,7 +67,7 @@ const NumberField = ({ value, label, min, max, step = 1, onChange }: NumberField
             className={`w-full text-center focus:outline-none
               ${value === Number(lastPropValue.current) ? 'text-black84' : 'text-black20'}`}
             value={inputValue}
-            onChange={handleInputChange}
+            onChange={handleChangeInput}
             onBlur={handleBlur}
             onKeyDown={(e) => e.key === 'Enter' && handleBlur()}
             inputMode="numeric"

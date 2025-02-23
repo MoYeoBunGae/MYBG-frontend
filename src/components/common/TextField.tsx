@@ -17,7 +17,7 @@ const TextField = ({
   isMultiline = false,
   onChange,
 }: TextFieldProps) => {
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const inputValue = e.target.value;
 
     if (inputValue.length <= maxLength) {
@@ -50,7 +50,7 @@ const TextField = ({
             ref={textareaRef}
             className="w-full min-h-10 px-3 py-2.5 rounded-sm border border-lightgray text-black20 focus:outline-none placeholder-black84 resize-none overflow-hidden"
             value={value}
-            onChange={handleInputChange}
+            onChange={handleChangeInput}
             maxLength={maxLength}
             placeholder={placeholder}
             spellCheck={false}
@@ -61,7 +61,7 @@ const TextField = ({
             type="text"
             className="w-full h-10 px-3 py-2.5 rounded-sm border border-lightgray text-black20 focus:outline-none placeholder-black84"
             value={value}
-            onChange={handleInputChange}
+            onChange={handleChangeInput}
             maxLength={maxLength}
             placeholder={placeholder}
             spellCheck={false}
