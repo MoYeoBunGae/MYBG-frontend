@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import BellIcon from '@/assets/icons/bell.svg?react';
 import LeftArrowIcon from '@/assets/icons/left-arrow.svg?react';
 import CloseIcon from '@/assets/icons/close.svg?react';
@@ -20,10 +21,16 @@ const Header = ({
   rightIcon = 'none',
   isCenter = false,
 }: HeaderProps) => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="flex items-center justify-between h-12 px-4 py-3 relative">
       {leftIcon !== 'none' && (
-        <div className="mr-3">
+        <div className="mr-3" onClick={goBack}>
           {leftIcon === 'back' && <LeftArrowIcon className="size-6 text-black20 cursor-pointer" />}
           {leftIcon === 'close' && <CloseIcon className="size-6 text-black20 cursor-pointer" />}
         </div>
