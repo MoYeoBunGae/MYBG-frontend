@@ -6,7 +6,7 @@ import KakaoSymbol from '@/assets/images/kakao-symbol.png';
 import DoorEmoji from '@/assets/emojis/door.svg?react';
 import SkeletonEmoji from '@/assets/emojis/skeleton.svg?react';
 
-export default function MyPage() {
+export default function Profile() {
   const navigate = useNavigate();
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
