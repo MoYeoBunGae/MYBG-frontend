@@ -31,7 +31,7 @@ jobs:
 
             - name: Create environment variable file from ENV_LIST secret
               run: |
-                echo "${{ secrets.DEV_ENV }}" > .env
+                echo "${{ secrets.DEV_ENV }}" > ./dist/.env
                 echo "Environment variable file (.env) created:"
 
             - name: Prepare script files
