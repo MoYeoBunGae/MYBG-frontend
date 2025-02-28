@@ -37,7 +37,7 @@ const TextField = ({
   }, [value, isMultiline]);
 
   return (
-    <div className="grid px-2 gap-1 text-sm">
+    <div className="grid gap-1 text-sm">
       {label && (
         <div className="flex pb-1">
           <label className="flex-1 font-semibold text-black">{label}</label>

@@ -49,7 +49,7 @@ const NumberField = ({ value, label, min, max, step = 1, onChange }: NumberField
   };
 
   return (
-    <div className="flex items-center px-2 text-sm">
+    <div className="flex items-center text-sm">
       {label && <label className="flex-1 font-semibold text-black">{label}</label>}
       <div className="flex items-center gap-2">
         <button

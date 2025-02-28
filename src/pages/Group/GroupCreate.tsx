@@ -39,8 +39,8 @@ export default function GroupCreate() {
         leftIcon="close"
         isCenter={true}
       />
-      <div className="flex flex-col mx-3 my-4 gap-6">
-        <div className="px-16">
+      <div className="flex flex-col px-2 mx-3 my-4 gap-6">
+        <div className="px-14">
           <ImageInput variant="only" onChange={handleChangeImg} />
         </div>
         <TextField
@@ -51,9 +51,9 @@ export default function GroupCreate() {
           onChange={setTitle}
         />
         <NumberField value={num} label="최대 인원" min={2} max={100} onChange={setNum} />
-        <div className="px-2">
+        <div>
           <span className="font-semibold text-xs text-black84">그룹에서 사용할 닉네임</span>
-          <div className="mt-2 px-1 py-3 rounded-sm bg-background text-sm">
+          <div className="mt-2 px-2 py-3 rounded-sm bg-background text-sm">
             <div className="flex justify-between px-2">
               <div className="content-center">계정 이름 그대로 사용</div>
               <Toggle checked={onOff} onChange={setOnOff} />
@@ -71,6 +71,8 @@ export default function GroupCreate() {
             )}
           </div>
         </div>
+      </div>
+      <div className="px-3 mt-6">
         <Button text="그룹 생성" onClick={handleCreateGroup} />
       </div>
     </div>
