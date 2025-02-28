@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface ToggleProps {
   checked?: boolean;
@@ -19,12 +20,12 @@ const Toggle = ({ checked = false, size = '24', onChange }: ToggleProps) => {
     20: {
       toggle: 'w-10 h-5',
       circle: 'size-4',
-      translate: 'translate-x-5',
+      translate: 20, // px 단위로 조정
     },
     24: {
       toggle: 'w-12 h-6',
       circle: 'size-5',
-      translate: 'translate-x-6',
+      translate: 24,
     },
   };
 
@@ -33,8 +34,12 @@ const Toggle = ({ checked = false, size = '24', onChange }: ToggleProps) => {
       className={`p-0.5 rounded-full ${sizes[size].toggle} ${isChecked ? 'bg-sub' : 'bg-darkgray'}`}
       onClick={handleToggle}
     >
-      <div
-        className={`rounded-full bg-white transition-transform duration-200 ${sizes[size].circle} ${isChecked ? sizes[size].translate : 'translate-x-0'}`}
+      <motion.div
+        className={`rounded-full bg-white ${sizes[size].circle}`}
+        layout
+        initial={false}
+        animate={{ x: isChecked ? sizes[size].translate : 0 }}
+        transition={{ type: 'spring', visualDuration: 0.2, bounce: 0.2 }}
       />
     </button>
   );
