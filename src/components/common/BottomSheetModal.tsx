@@ -21,7 +21,7 @@ const BottomSheetModal = ({ isOpen, onClose, children }: BottomSheetModalProps) 
           />
 
           <motion.div
-            className="fixed left-0 bottom-0 w-full z-2 px-6 pt-5 pb-10 rounded-t-[24px] bg-white max-h-[65vh] overflow-y-auto"
+            className="fixed left-0 bottom-0 w-full z-2 px-6 pt-5 pb-16 rounded-t-[24px] bg-white max-h-[65vh] overflow-y-auto"
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
@@ -31,7 +31,7 @@ const BottomSheetModal = ({ isOpen, onClose, children }: BottomSheetModalProps) 
             <div className="absolute top-5 right-6">
               <CloseIcon className="size-6 text-black84 cursor-pointer" onClick={onClose} />
             </div>
-            <div className="pt-11">{children}</div>
+            <div className="pt-10">{children}</div>
           </motion.div>
         </>
       )}
