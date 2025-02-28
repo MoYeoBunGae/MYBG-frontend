@@ -20,19 +20,21 @@ jobs:
             - name: Install Dependencies
               run: npm install
 
-            # - name: Generate Environment Variables File for Production
-            #   env:
-            #     VITE_API_URL: ${{ secrets.VITE_API_URL }}
-            #   run: |
-            #     echo "VITE_API_URL=${VITE_API_URL}" >> .env
+            - name: Create environment variable file from ENV_LIST secret
+              run: |
+                echo "${{ secrets.DEV_ENV }}" > .env
+                echo "Environment variable file (.env) created:"
 
             - name: Build
               run: npm run build
 
-            - name: zip create
-              run: | 
+            - name: Prepare script files
+              run: |
                 chmod +x clean_old_deploy.sh after_deploy.sh
                 cp appspec.yml clean_old_deploy.sh after_deploy.sh ./dist/
+
+            - name: zip create
+              run: | 
                 zip -qq -r ./${{ env.DEV_BUCKET_KEY }} ./dist
               shell: bash
 
