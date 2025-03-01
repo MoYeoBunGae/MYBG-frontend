@@ -29,12 +29,12 @@ const Navbar = () => {
           </Link>
         ))}
 
-        <Link to="/myprofile" className="flex flex-col items-center text-xs gap-1.5">
+        <Link to="/mypage" className="flex flex-col items-center text-xs gap-1.5">
           <div
-            className={`size-7 rounded-full border-[1.5px] bg-cover bg-center ${location.pathname === '/myprofile' ? 'border-primary' : 'border-lightgray'}`}
+            className={`size-7 rounded-full border-[1.5px] bg-cover bg-center ${location.pathname === '/mypage' ? 'border-primary' : 'border-lightgray'}`}
             style={{ backgroundImage: `url(${user.profileImg || ProfileDefault})` }}
           />
-          <span className={location.pathname === '/myprofile' ? 'text-primary' : 'text-darkgray'}>
+          <span className={location.pathname === '/mypage' ? 'text-primary' : 'text-darkgray'}>
             계정
           </span>
         </Link>
