@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { logoutFromServer } from '@/api/auth';
 import { useAuthStore } from '@/store/authStore';
 import ProfileDefault from '@/assets/images/profile.png';
 import KakaoSymbol from '@/assets/images/kakao-symbol.png';
@@ -9,11 +10,14 @@ import Header from '@/components/layout/Header';
 export default function MyPage() {
   const navigate = useNavigate();
   const user = useAuthStore((state) => state.user);
-  const logout = useAuthStore((state) => state.logout);
 
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
+  const handleLogout = async () => {
+    try {
+      await logoutFromServer();
+      navigate('/login');
+    } catch (error) {
+      alert('로그아웃 중 오류가 발생했습니다.');
+    }
   };
 
   const handleDeleteAccount = () => {

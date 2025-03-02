@@ -20,3 +20,33 @@ export const loginWithKakao = async (authToken: string) => {
     throw error;
   }
 };
+
+export const reissueAccessToken = async () => {
+  try {
+    const currentRefreshToken = useAuthStore.getState().refreshToken;
+
+    const response = await api.post('/auth/reissue', { currentRefreshToken });
+
+    const { accessToken, refreshToken } = response.data;
+    useAuthStore.getState().setAuth({ accessToken, refreshToken });
+
+    return accessToken;
+  } catch (error) {
+    console.error('Access Token 재발급 실패: ', error);
+    throw error;
+  }
+};
+
+export const logoutFromServer = async () => {
+  try {
+    const response = await api.post('/auth/logout');
+    if (response.status === 200) {
+      useAuthStore.getState().logout();
+    }
+
+    return response;
+  } catch (error) {
+    console.error('로그아웃 실패: ', error);
+    throw error;
+  }
+};
