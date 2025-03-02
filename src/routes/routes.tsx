@@ -3,7 +3,7 @@ import ProetectedRoute from '@/routes/ProetectedRoute';
 import PublicRoute from '@/routes/PublicRoute';
 import { Login, LoginSuccess } from '@/pages/Auth';
 import { BungaeList, GroupList, MyPage } from '@/pages/My';
-import { GroupCreate, GroupCreateSuccess } from '@/pages/Group';
+import { GroupCreate, GroupCreateSuccess, GroupHome } from '@/pages/Group';
 
 interface RouteType {
   path: string;
@@ -17,6 +17,7 @@ const proetectedRoutes: RouteType[] = [
   { path: '/mypage', element: <MyPage />, layout: true },
   { path: '/group/post', element: <GroupCreate />, layout: false },
   { path: '/group/success', element: <GroupCreateSuccess />, layout: false },
+  { path: 'group/:id', element: <GroupHome />, layout: false },
 ].map((route) => ({
   ...route,
   element: <ProetectedRoute>{route.element}</ProetectedRoute>,
