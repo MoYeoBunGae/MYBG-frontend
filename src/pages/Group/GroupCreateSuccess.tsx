@@ -1,8 +1,8 @@
 import Confetti from 'react-confetti';
 import { copyToClipboard } from '@/utils/clipboard';
+import TicketEmoji from '@/assets/emojis/ticket.svg?react';
 import Header from '@/components/layout/Header';
 import Button from '@/components/common/Button';
-import TicketEmoji from '@/assets/emojis/ticket.svg?react';
 
 export default function GroupCreateSuccess() {
   const group = {

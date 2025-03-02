@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/store/authStore';
-import Header from '@/components/layout/Header';
 import ProfileDefault from '@/assets/images/profile.png';
 import KakaoSymbol from '@/assets/images/kakao-symbol.png';
 import DoorEmoji from '@/assets/emojis/door.svg?react';
 import SkeletonEmoji from '@/assets/emojis/skeleton.svg?react';
+import Header from '@/components/layout/Header';
 
 export default function MyPage() {
   const navigate = useNavigate();
