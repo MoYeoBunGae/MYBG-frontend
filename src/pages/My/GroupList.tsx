@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '@/components/layout/Header';
-import Button from '@/components/common/Button';
 import LetterEmoji from '@/assets/emojis/letter.svg?react';
 import PeopleEmoji from '@/assets/emojis/people.svg?react';
+import Header from '@/components/layout/Header';
+import Button from '@/components/common/Button';
+import BottomSheetModal from '@/components/common/BottomSheetModal';
+import TextField from '@/components/common/TextField';
 
 const groups = [
   {
@@ -21,6 +24,8 @@ const groups = [
 
 export default function GroupList() {
   const navigate = useNavigate();
+  const [isInviteCodeModalOpen, setInviteCodeModalOpen] = useState(false);
+  const [inviteCode, setInviteCode] = useState('');
 
   return (
     <>
@@ -34,14 +39,26 @@ export default function GroupList() {
             icon={<PeopleEmoji />}
             onClick={() => navigate('/group/post')}
           />
-          <Button text="초대 코드 입력" variant="withIcon" icon={<LetterEmoji />} />
+          <Button
+            text="초대 코드로 검색"
+            variant="withIcon"
+            icon={<LetterEmoji />}
+            onClick={() => setInviteCodeModalOpen(true)}
+          />
         </div>
+
         <div className="px-3 py-4 mb-4 rounded-md bg-white text-sm">
           <div className="mb-4 font-bold text-black20">나의 그룹</div>
           {groups.length > 0 ? (
             <div className="grid grid-cols-2 gap-3">
               {groups.map((group, index) => (
-                <div key={index} className="flex flex-col gap-2 mb-1">
+                <div
+                  key={index}
+                  className="flex flex-col gap-2 mb-1"
+                  onClick={() => {
+                    navigate(`/group/${group.groupId}`);
+                  }}
+                >
                   <div className="aspect-square rounded-md border border-lightgray overflow-hidden cursor-pointer">
                     {group.ProfileImage && (
                       <img
@@ -63,6 +80,23 @@ export default function GroupList() {
           )}
         </div>
       </div>
+
+      <BottomSheetModal
+        isOpen={isInviteCodeModalOpen}
+        onClose={() => setInviteCodeModalOpen(false)}
+      >
+        <div className="flex flex-col gap-5">
+          <span className="flex-1 font-bold text-lg text-center">초대 코드로 가입</span>
+          <TextField
+            value={inviteCode}
+            placeholder="그룹 초대 코드 (8글자)"
+            maxLength={8}
+            onlyLengthLabel
+            onChange={(value) => setInviteCode(value.trim())}
+          />
+          <Button text="그룹 검색" color={inviteCode.length === 8 ? 'primary' : 'disabled'} />
+        </div>
+      </BottomSheetModal>
     </>
   );
 }
