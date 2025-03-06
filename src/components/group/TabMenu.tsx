@@ -40,6 +40,7 @@ const TabMenu = ({ tabs, activeTab, setActiveTab }: TabMenuProps) => {
       ))}
 
       <motion.div
+        key={activeTab}
         className="absolute bottom-0 h-[2px] bg-secondary"
         initial={false}
         animate={{

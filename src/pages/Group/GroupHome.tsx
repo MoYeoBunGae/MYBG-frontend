@@ -1,23 +1,40 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import Header from '@/components/layout/Header';
 import TabMenu from '@/components/group/TabMenu';
 
 const group = {
-  groupId: 2,
+  groupId: 1,
   Name: '무엇이든 축하하는 그룹',
   ProfileImage: 'https://i.pinimg.com/564x/aa/a8/c8/aaa8c83eedd7e0321ee132f4e357d5aa.jpg',
   totalNumber: 12,
 };
-const groupTabs = ['홈', '번개로그', '스토리'];
+
+const groupTabs = [
+  { name: '홈', path: '' },
+  { name: '번개로그', path: 'bungae-log' },
+  { name: '스토리', path: 'story' },
+];
 
 export default function GroupHome() {
-  const [activeTab, setActiveTab] = useState(groupTabs[0]);
+  const navigate = useNavigate();
+  const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
   const { targetRef, isVisible } = useIntersectionObserver();
 
-  const handleTabChange = (tab: string) => {
-    setActiveTab(tab);
+  const [activeTab, setActiveTab] = useState('홈');
+
+  useEffect(() => {
+    const currentTab = groupTabs.find(
+      (tab) => location.pathname === `/group/${group.groupId}/${tab.path}`
+    );
+
+    if (currentTab) setActiveTab(currentTab.name);
+  }, [location.pathname]);
+
+  const handleTabChange = (tabPath: string) => {
+    navigate(`/group/${group.groupId}/${tabPath}`, { replace: true });
 
     if (containerRef.current) {
       containerRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -53,26 +70,17 @@ export default function GroupHome() {
         ref={containerRef}
         className={`w-full z-2 ${isVisible ? 'relative' : 'sticky top-11 bg-white'}`}
       >
-        <TabMenu tabs={groupTabs} activeTab={activeTab} setActiveTab={handleTabChange} />
+        <TabMenu
+          tabs={groupTabs.map((tab) => tab.name)}
+          activeTab={activeTab}
+          setActiveTab={(tabName) => {
+            const selectedTab = groupTabs.find((tab) => tab.name === tabName);
+            if (selectedTab) handleTabChange(selectedTab.path);
+          }}
+        />
       </div>
 
-      <div className="h-screen flex items-center justify-center text-2xl">
-        {activeTab === '홈' && <HomeContent />}
-        {activeTab === '번개로그' && <LightningLogContent />}
-        {activeTab === '스토리' && <StoryContent />}
-      </div>
+      <Outlet />
     </div>
   );
 }
-
-const HomeContent = () => (
-  <div className="bg-red-100 w-full h-full flex justify-center items-center">🏠 홈 콘텐츠</div>
-);
-const LightningLogContent = () => (
-  <div className="bg-green-100 w-full h-full flex justify-center items-center">
-    ⚡ 번개로그 콘텐츠
-  </div>
-);
-const StoryContent = () => (
-  <div className="bg-blue-100 w-full h-full flex justify-center items-center">📖 스토리 콘텐츠</div>
-);
