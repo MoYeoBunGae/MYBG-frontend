@@ -2,14 +2,14 @@ import { useAuthStore } from '@/store/authStore';
 import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 
-interface ProetectedRouteProps {
+interface ProtectedRouteProps {
   children: ReactNode;
 }
 
-const ProetectedRoute = ({ children }: ProetectedRouteProps) => {
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const accessToken = useAuthStore((state) => state.accessToken);
 
   return accessToken ? children : <Navigate to="/login" replace />;
 };
 
-export default ProetectedRoute;
+export default ProtectedRoute;

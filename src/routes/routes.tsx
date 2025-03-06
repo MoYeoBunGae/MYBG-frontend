@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import ProetectedRoute from '@/routes/ProetectedRoute';
+import ProtectedRoute from '@/routes/ProtectedRoute';
 import PublicRoute from '@/routes/PublicRoute';
 import { Login, LoginSuccess } from '@/pages/Auth';
 import { BungaeList, GroupList, MyPage } from '@/pages/My';
@@ -11,16 +11,16 @@ interface RouteType {
   layout: boolean;
 }
 
-const proetectedRoutes: RouteType[] = [
+const protectedRoutes: RouteType[] = [
   { path: '/', element: <GroupList />, layout: true },
   { path: '/mybungae', element: <BungaeList />, layout: true },
   { path: '/mypage', element: <MyPage />, layout: true },
   { path: '/group/post', element: <GroupCreate />, layout: false },
   { path: '/group/success', element: <GroupCreateSuccess />, layout: false },
-  { path: 'group/:id', element: <GroupHome />, layout: false },
+  { path: 'group/:id/', element: <GroupHome />, layout: false },
 ].map((route) => ({
   ...route,
-  element: <ProetectedRoute>{route.element}</ProetectedRoute>,
+  element: <ProtectedRoute>{route.element}</ProtectedRoute>,
 }));
 
 const publicRoutes: RouteType[] = [
@@ -32,7 +32,7 @@ const publicRoutes: RouteType[] = [
 }));
 
 const routes: RouteType[] = [
-  ...proetectedRoutes,
+  ...protectedRoutes,
   ...publicRoutes,
   // { path : "*", element: <Navigate to="/" replace />},
 ];
